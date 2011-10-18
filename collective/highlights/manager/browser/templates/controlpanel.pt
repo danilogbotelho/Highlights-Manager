@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="collective.highlights.manager">
+
+  <body>
+
+    <div metal:fill-slot="prefs_configlet_main"
+          tal:define="contents view/contents">
+
+      <h1 tal:content="view/label">Configuration</h1>
+
+      <a href="#" i18n:translate=""
+         class="link-parent"
+         tal:define="link view/back_link | nothing"
+         tal:condition="link"
+         tal:content="link/label"
+         tal:attributes="href link/url">
+        Up to Site Setup
+      </a>
+
+      <div class="portalMessage"
+           tal:condition="view/status | nothing" tal:content="view/status">
+      </div>
+      
+	<form action=""
+		name="groups_add"
+        method="post"
+        tal:attributes="action string:${context/absolute_url}/addHighlightsGroup">
+
+       	<input type="hidden" name="form.submitted" value="1" />
+
+        <input class="standalone add"
+              type="submit"
+              name="form.button.AddGroup"
+              value="Add New Group"
+              i18n:attributes="value label_add_new_group;"
+              />
+	</form>
+
+      <div id="skel-contents">
+        <span tal:replace="structure contents" />
+      </div>
+
+    </div>
+
+  </body>
+</html>

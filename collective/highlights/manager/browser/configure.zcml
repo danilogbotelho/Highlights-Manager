@@ -1,0 +1,89 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="colletive.highlights.manager">
+
+    <include package="plone.app.z3cform" />
+    
+    <class class="Products.ATContentTypes.content.base.ATCTContent">
+        <implements interface="..interfaces.IHighlightable" />
+    </class>
+
+    <browser:page
+	for="*"
+	name="isHighlightable"
+	class=".highlight.TestHighlightable"
+	layer=".interfaces.IProductSpecific"
+	permission="highlights.manager.HighlightContent" 
+	/>
+
+    <browser:page
+	for="..interfaces.IHighlightable"
+	name="highlight"
+	class=".highlight.EditHighlight"
+	layer=".interfaces.IProductSpecific"
+	permission="highlights.manager.HighlightContent" 
+	/>
+
+
+    <browser:page
+        for="..interfaces.IHighlightsTool"
+        name="addHighlightsGroup"
+        template="templates/form_layout.pt"
+        class=".groups.AddGroupForm"
+        permission="highlights.manager.ManageHighlights"
+        layer=".interfaces.IProductSpecific" 
+	/>
+    
+    <browser:page
+        for="zope.app.container.interfaces.IAdding"
+        name="addHighlightsGroup"
+        template="templates/nakedform.pt"
+        class=".groups.AddGroupForm"
+        permission="highlights.manager.ManageHighlights"
+        />
+    
+    <browser:page
+        for="..interfaces.IHighlightsTool"
+        name="index_html"
+        class=".groups_overview.GroupsOverview"
+        permission="highlights.manager.ManageHighlights"
+        layer=".interfaces.IProductSpecific"
+    />
+    
+    <browser:page
+        for="..interfaces.IHighlightsGroup"
+        name="edit"
+        template="templates/form_layout.pt"
+        class=".groups.EditGroupForm"
+        permission="highlights.manager.ManageHighlights"
+        layer=".interfaces.IProductSpecific"
+    />
+    
+    <browser:page
+        for="..interfaces.IHighlightsGroup"
+        name="zmi_edit"
+        template="templates/nakedform.pt"
+        class=".groups.uwEditGroupForm"
+        permission="highlights.manager.ManageHighlights"
+    />
+    
+    <browser:page
+        for="..interfaces.IHighlightsGroup"
+        name="index_html"
+        template="templates/form_layout.pt"
+        class=".groups.GroupMembers"
+        permission="highlights.manager.ManageHighlights"
+        layer=".interfaces.IProductSpecific"
+    />
+
+    <adapter factory=".groups.GroupMember" />
+    
+    <!-- Browser Resources -->
+    <browser:resourceDirectory 
+    	name="collective.highlights.manager.resources"
+    	directory="resources"
+    	layer=".interfaces.IProductSpecific"
+    />
+
+ </configure>

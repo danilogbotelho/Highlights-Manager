@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<action-icons xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="collective.highlights.manager">
+ <action-icon category="controlpanel"
+              action_id="collective.highlights.manager"
+              title="Highlights Manager" priority="0"
+              icon_expr="++resource++collective.highlights.manager.resources/hlitestool_icon.gif"
+              i18n:attributes="title"/>
+</action-icons>

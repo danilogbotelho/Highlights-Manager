@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.highlights.manager">
+
+    <genericsetup:registerProfile
+	name="default"
+	title="Highlights Manager"
+	description="Featured content manager"
+	directory="profiles/default"
+	provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+</configure>

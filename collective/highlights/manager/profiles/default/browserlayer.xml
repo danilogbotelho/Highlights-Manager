@@ -1,0 +1,6 @@
+<layers>
+    <layer
+        name="collective.highlights.manager browser layer"
+        interface="collective.highlights.manager.browser.interfaces.IProductSpecific"
+    />
+</layers>

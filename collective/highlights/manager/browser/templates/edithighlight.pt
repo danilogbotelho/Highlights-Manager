@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone.z3cform"
+      metal:use-macro="context/@@standard_macros/page">
+
+    <body metal:fill-slot="body">
+
+        <h1 tal:content="view/label | nothing" />
+
+        <div class="description"
+           tal:condition="view/description | nothing"
+           tal:content="structure view/description">Form description</div>
+
+        <div class="portalMessage"
+             tal:condition="view/status | view/groupsel/status" tal:content="view/status | view/groupsel/status">
+        </div>
+<div class="portalMessage"
+             tal:condition="view/groupsel/status" tal:content="view/groupsel/status">
+        </div>
+
+        <form action="." method="post"
+              tal:attributes="action request/getURL; enctype view/enctype">
+
+	<metal:block tal:define="view nocall:view/groupsel">
+           <fieldset> 
+	   <legend tal:content="view/label"></legend>  
+           <metal:block use-macro="context/@@ploneform-macros/fields" />
+           <metal:block use-macro="context/@@ploneform-macros/actions" />
+           </fieldset>
+	</metal:block>
+
+	<metal:block use-macro="context/@@ploneform-macros/fields" />
+	<metal:block use-macro="context/@@ploneform-macros/actions" />
+
+	</form>
+
+    </body>
+
+</html>

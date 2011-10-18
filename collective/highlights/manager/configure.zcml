@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    i18n_domain="collective.highlights.manager">
+
+  <includeDependencies package="." />
+  <include file="permissions.zcml" />
+  <include package=".browser" />
+  <five:registerPackage package="." initialize=".initialize" />
+  <include file="profiles.zcml" />
+
+  <adapter factory=".highlights.getHighlightDataStorage" />
+  <utility component=".highlights.HighlightDataFactory" name="highlightdata" />
+  <utility factory=".vocabularies.GroupSchemaVocabulary" 
+  	   name="collective.highlights.manager.GroupSchemas" />
+  <utility factory=".vocabularies.GroupsVocabulary" 
+  	   name="collective.highlights.manager.Groups" />
+
+  <adapter factory='.highlights.hlite_groups' name='hlite_groups' />
+
+</configure>

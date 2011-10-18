@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="collective.highlights.manager">
+
+    <permission
+        id="highlights.manager.ManageHighlights"
+        title="collective.highlights.manager: Manage settings" />
+
+    <permission
+        id="highlights.manager.HighlightContent"
+        title="collective.highlights.manager: Highlight content" />
+
+</configure>

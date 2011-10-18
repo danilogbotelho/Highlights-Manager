@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel">
+ <configlet title="Highlights Manager" action_id="collective.highlights.manager"
+    appId="collective.highlights.manager" category="Products" condition_expr=""
+    url_expr="string:${portal_url}/highlights_manager"
+    visible="True">
+  <permission>collective.highlights.manager: Manage highlights</permission>
+ </configlet>
+</object>

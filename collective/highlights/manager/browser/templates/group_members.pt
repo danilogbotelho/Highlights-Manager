@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/prefs_main_template/macros/master"
+      i18n:domain="plone">
+<body>
+	<div metal:fill-slot="prefs_configlet_content"
+      tal:define="template_id template/getId; here_url context/absolute_url">
+		<div id="region-content" class="documentEditable">
+		    <ul class="contentViews">
+		      <li>
+		        <a href=""
+		           tal:attributes="href string:$here_url/edit"
+		           i18n:translate="label_group_properties">Group Properties</a>
+		      </li>
+		      <li class="selected">
+		        <a href=""
+		           tal:attributes="href string:$here_url"
+		           i18n:translate="label_group_members">Group Members</a>
+		    </ul>
+		    
+		    <div class="contentActions">&nbsp;</div>
+    
+    		<div id="region-content" class="documentContent">
+		    	<a name="documentContent"></a>
+		
+		    	<div metal:use-macro="here/global_statusmessage/macros/portal_message">
+		        	Portal status message
+		      	</div>
+
+		    	<tal:main-macro metal:define-macro="main">
+				<div class="configlet">
+		      		<h1 class="documentFirstHeading" tal:content="view/label">Group Members</h1>
+			        
+			        <a href="#" i18n:translate=""
+			         class="link-parent"
+			         tal:define="link view/back_link | nothing"
+			         tal:condition="link"
+			         tal:content="link/label"
+			         tal:attributes="href link/url">
+			        Up to Groups Overview
+			      </a>
+		
+		      		<div>grm</div>
+				</div>
+		    	</tal:main-macro>
+		    </div>
+
+		</div>
+	</div>
+</body>
+</html>
+
